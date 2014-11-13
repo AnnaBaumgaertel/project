@@ -31,21 +31,6 @@
 							<td th:text="${orderline.quantity}">10</td>
 							<td th:text="${orderline.price}">10 Euro</td>
 						</tr>
-						<tr>
-							<td>Last Action Hero</td>
-							<td>10</td>
-							<td>10 Euro</td>
-						</tr>
-						<tr>
-							<td>Last Action Hero</td>
-							<td>10</td>
-							<td>10 Euro</td>
-						</tr>
-						<tr>
-							<td>Last Action Hero</td>
-							<td>10</td>
-							<td>10 Euro</td>
-						</tr>
 
 					</tbody>
 				</table>
@@ -53,6 +38,23 @@
 				<div class="salespoint" sec:authorize="hasRole('ROLE_CUSTOMER')">
 					<form method="post" action="checkout">
 						<input type="submit" th:value="#{cart.buy}" value="Kaufen" />
+					</form>
+										
+			<!-- Hier kommt man zurück zum DVD Katalog -->
+					<form method="post" action="/dvdCatalog">
+						<button name="searchTerm">Weitershoppen zum DVD Katalog</button>
+					</form>
+					
+			<!-- Hier kommt man zurück zum BluRay Katalog -->
+					<form method="post" action="/blurayCatalog">
+						<button name="searchTerm">Weitershoppen zum BluRay Katalog</button>
+					</form>
+					
+			<!-- Der Warenkorb wird leer, wenn man ihn verwirft -->
+					<form method="post" th:action="@{cart/clear}">
+						<button name="searchTerm">Warenkorb verwerfen</button>
+						<p th:if="${cart.empty}" th:text="#{cart.empty}">Leer</p>
+					
 					</form>
 				</div>
 			</div>

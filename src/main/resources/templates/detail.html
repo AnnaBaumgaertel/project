@@ -33,10 +33,7 @@
 			</div>
 
 			<p>Was andere Kunden über diesen Film sagen</p>	<br />
-			
-			<div class="rating">
-			<p>Rating:</p><p th:text="${disc.calcRating()}">5sterne</p><br /> 
-			</div>
+
 			
 			<div class="detailComments" th:remove="all-but-first" >
 				<article class="comment" th:each="comment : ${disc.comments}" th:text="${comment}">Erster !!!1111elf</article>

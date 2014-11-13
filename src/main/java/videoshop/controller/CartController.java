@@ -131,6 +131,17 @@ class CartController {
 			}).orElse("redirect:/cart");
 	}
 
+	@RequestMapping(value = "cart/clear")
+	public String clear(HttpSession session, @LoggedIn Optional<UserAccount> userAccount) {
+
+		
+				Cart cart = getCart(session);
+				cart.clear();
+
+				return "redirect:/cart";
+		
+	}
+	
 	/**
 	 * Puts a {@link Cart} object under the key {@code cart} into the model for every request. Uses the
 	 * {@link HttpSession} to keep the very same Cart instance around for a user session.
